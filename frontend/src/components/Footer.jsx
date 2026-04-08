@@ -1,6 +1,7 @@
 import React from 'react'
 import { assets } from '../assets/assets'
 import { Link } from 'react-router-dom'
+import { normalizeCategory } from '../utils/category'
 
 const Footer = () => {
   return (
@@ -19,14 +20,17 @@ const Footer = () => {
                     <Link to='/'>
                         <li>Home</li>
                     </Link>
-                    <Link to='/about'>
-                        <li>About Us</li>
+                    <Link to={`/collection?category=${encodeURIComponent(normalizeCategory('Jewelry'))}`}>
+                        <li>Jewelry</li>
                     </Link>
-                    <Link to='/about'>
-                        <li>Delivery</li>
+                    <Link to={`/collection?category=${encodeURIComponent(normalizeCategory('Beauty Core'))}`}>
+                        <li>Beauty Core</li>
                     </Link>
-                    <Link to='/about'>
-                        <li>Privacy & Policy</li>
+                    <Link to={`/collection?category=${encodeURIComponent(normalizeCategory('Health & Care'))}`}>
+                        <li>Health & Care</li>
+                    </Link>
+                    <Link to={`/collection?category=${encodeURIComponent(normalizeCategory('Fashion & Design'))}`}>
+                        <li>Fashion & Design</li>
                     </Link>
                 </ul>
             </div>

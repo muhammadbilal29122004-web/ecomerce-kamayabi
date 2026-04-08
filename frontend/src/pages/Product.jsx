@@ -12,6 +12,11 @@ const Product = () => {
   const [image, setImage] = useState('');
   const [size, setSize] = useState('');
 
+  const isFashionCategory = (category = '') => {
+    const normalizedCategory = category.toLowerCase().replace(/[^a-z]/g, '');
+    return normalizedCategory.includes('fashion');
+  };
+
   const fetchProductData = async () => {
     products.map((item) => {
       if (item._id === productId) {
@@ -25,6 +30,10 @@ const Product = () => {
   useEffect(() => {
     fetchProductData();
   }, [productId, products]);
+
+  useEffect(() => {
+    setSize('');
+  }, [productId]);
 
   return productData ? (
     <div className='pt-10 transition-opacity duration-500 ease-in border-t-2 opacity-100'>
@@ -64,22 +73,29 @@ const Product = () => {
           </div>
           <p className='mt-5 text-3xl font-medium'>{currency}{productData.price}</p>
           <p className='mt-5 text-gray-500 md:w-4/5'>{productData.description}</p>
-          <div className='flex flex-col gap-4 my-8'>
-            <p>Select Size</p>
-            <div className='flex gap-2'>
-              {productData.sizes.map((item, index) => (
-                <button 
-                  key={index}
-                  onClick={() => setSize(item)}
-                  className={`border py-2 px-4 bg-gray-100 rounded-md ${item === size ? 'border-orange-500' : ''}`}
-                >
-                  {item}
-                </button>
-              ))}
+          {isFashionCategory(productData.category) && (
+            <div className='flex flex-col gap-4 my-8'>
+              <p>Select Size</p>
+              <div className='flex gap-2'>
+                {productData.sizes.map((item, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setSize(item)}
+                    className={`border py-2 px-4 bg-gray-100 rounded-md ${item === size ? 'border-orange-500' : ''}`}
+                  >
+                    {item}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
           <button 
-            onClick={() => addToCart(productData._id, size)} 
+            onClick={() =>
+              addToCart(
+                productData._id,
+                isFashionCategory(productData.category) ? size : 'default'
+              )
+            }
             className='px-8 py-3 text-sm text-white bg-black active:bg-gray-700'
           >
             ADD TO CART

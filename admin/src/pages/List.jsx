@@ -3,6 +3,15 @@ import axios from "axios";
 import { backendUrl, currency } from "../App";
 import { toast } from "react-toastify";
 
+const categoryLabelMap = {
+  Medicine: "Health & Care",
+  Cosmetics: "Beauty Core",
+  Cloth: "Fashion & Design",
+};
+
+const normalizeCategory = (category = "") =>
+  categoryLabelMap[category] || category;
+
 const List = ({ token }) => {
   const [listProducts, setListProducts] = useState([]);
 
@@ -67,7 +76,7 @@ const List = ({ token }) => {
             <img className="w-12" src={item.image[0]} alt="Product Image" />
             <p className="text-left">{item.name}</p>
             <p className="text-left">{item.description}</p>
-            <p>{item.category}</p>
+            <p>{normalizeCategory(item.category)}</p>
             <p>{item.subCategory}</p>
             <p>{currency(item.price)}</p>
             <p

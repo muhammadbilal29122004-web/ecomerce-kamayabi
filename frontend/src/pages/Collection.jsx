@@ -1,16 +1,32 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
 import Title from "../components/Title";
 import ProductItem from "../components/ProductItem";
+import { CATEGORY_OPTIONS, normalizeCategory } from "../utils/category";
 
 const Collection = () => {
   const { products, search, showSearch } = useContext(ShopContext);
+  const [searchParams] = useSearchParams();
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
-  const [category, setCategory] = useState([]);
+  const [category, setCategory] = useState(
+    searchParams.get("category")
+      ? [normalizeCategory(searchParams.get("category"))]
+      : []
+  );
   const [subCategory, setSubCategory] = useState([]);
   const [sortType, setSortType] = useState("relevant");
+  
+  useEffect(() => {
+    const categoryParam = searchParams.get("category");
+    if (categoryParam) {
+      setCategory([normalizeCategory(categoryParam)]);
+    } else {
+      setCategory([]);
+    }
+  }, [searchParams]);
 
   const toggleCategory = (e) => {
     if (category.includes(e.target.value)) {
@@ -39,7 +55,7 @@ const Collection = () => {
 
     if (category.length > 0) {
       productsCopy = productsCopy.filter((item) =>
-        category.includes(item.category)
+        category.includes(normalizeCategory(item.category))
       );
     }
     if (subCategory.length > 0) {
@@ -103,36 +119,18 @@ const Collection = () => {
         >
           <p className="mb-3 text-sm font-medium">CATEGORIES</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
-            <label className="flex gap-2 cursor-pointer">
-              <input
-                className="w-3"
-                type="checkbox"
-                value={"Men"}
-                onChange={toggleCategory}
-                checked={category.includes("Men")}
-              />
-              Men
-            </label>
-            <label className="flex gap-2 cursor-pointer">
-              <input
-                className="w-3"
-                type="checkbox"
-                value={"Women"}
-                onChange={toggleCategory}
-                checked={category.includes("Women")}
-              />
-              Women
-            </label>
-            <label className="flex gap-2 cursor-pointer">
-              <input
-                className="w-3"
-                type="checkbox"
-                value={"Kids"}
-                onChange={toggleCategory}
-                checked={category.includes("Kids")}
-              />
-              Kids
-            </label>
+            {CATEGORY_OPTIONS.map((cat) => (
+              <label key={cat} className="flex gap-2 cursor-pointer">
+                <input
+                  className="w-3"
+                  type="checkbox"
+                  value={cat}
+                  onChange={toggleCategory}
+                  checked={category.includes(cat)}
+                />
+                {cat}
+              </label>
+            ))}
           </div>
         </div>
         {/* Sub Category Filters */}

@@ -4,6 +4,13 @@ import axios from "axios";
 import { backendUrl } from "../App";
 import { toast } from "react-toastify";
 
+const categoryOptions = [
+  "Health & Care",
+  "Beauty Core",
+  "Fashion & Design",
+  "Jewelry",
+];
+
 const Add = ({ token }) => {
   const [image1, setImage1] = useState(null);
   const [image2, setImage2] = useState(null);
@@ -17,6 +24,7 @@ const Add = ({ token }) => {
   const [price, setPrice] = useState("");
   const [sizes, setSizes] = useState([]);
   const [bestSeller, setBestSeller] = useState(false);
+  const isFashionCategory = category === "Fashion & Design";
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
@@ -31,7 +39,7 @@ const Add = ({ token }) => {
       formData.append("name", name);
       formData.append("description", description);
       formData.append("category", category);
-      formData.append("subCategory", subCategory);
+      formData.append("subCategory", isFashionCategory ? subCategory : "");
       formData.append("price", price);
       formData.append("sizes", JSON.stringify(sizes));
       formData.append("bestSeller", bestSeller);
@@ -160,15 +168,23 @@ const Add = ({ token }) => {
         <div>
           <p className="mb-2 text-lg font-semibold">Product Category</p>
           <select
-            onChange={(e) => setCategory(e.target.value)}
+            onChange={(e) => {
+              const selectedCategory = e.target.value;
+              setCategory(selectedCategory);
+              if (selectedCategory !== "Fashion & Design") {
+                setSubCategory("");
+              }
+            }}
             value={category}
             className="w-full px-3 py-2 border-gray-500 max-w-[500px]"
             required
           >
             <option value="">Select Category</option>
-            <option value="Men">Men</option>
-            <option value="Women">Women</option>
-            <option value="Kids">Kids</option>
+            {categoryOptions.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
           </select>
         </div>
         <div>
@@ -177,7 +193,8 @@ const Add = ({ token }) => {
             onChange={(e) => setSubCategory(e.target.value)}
             value={subCategory}
             className="w-full px-3 py-2 border-gray-500 max-w-[500px]"
-            required
+            required={isFashionCategory}
+            disabled={!isFashionCategory}
           >
             <option value="">Select Sub Category</option>
             <option value="Topwear">Topwear</option>

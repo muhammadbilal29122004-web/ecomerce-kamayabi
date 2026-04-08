@@ -10,8 +10,8 @@ import orderRouter from "./routes/orderRoute.js";
 // INFO: Create express app
 const app = express();
 const port = process.env.PORT || 4000;
-connectDB();
 connectCloudinary();
+let isRetryingDb = false;
 
 // INFO: Middleware
 app.use(express.json());
@@ -27,7 +27,21 @@ app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
-// INFO: Start server
-app.listen(port, () =>
-  console.log(`Server is running on at http://localhost:${port}`)
-);
+const startServer = async () => {
+  await connectDB();
+
+  // INFO: Keep retrying DB connection in background without crashing process
+  setInterval(async () => {
+    if (!isRetryingDb) {
+      isRetryingDb = true;
+      await connectDB();
+      isRetryingDb = false;
+    }
+  }, 15000);
+
+  app.listen(port, () =>
+    console.log(`Server is running on at http://localhost:${port}`)
+  );
+};
+
+startServer();
