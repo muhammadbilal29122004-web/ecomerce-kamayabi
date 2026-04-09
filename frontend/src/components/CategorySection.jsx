@@ -17,9 +17,9 @@ const CategorySection = () => {
             images: ['/medicine1.jpg', '/medicine2.jpg', '/medicine3.jpg', '/medicine 4.jpg']
         },
         {
-            name: 'Beauty Core',
+            name: 'Beauty & Care',
             banner: cosmeticsBanner,
-            path: encodeCategoryPath('Beauty Core'),
+            path: encodeCategoryPath('Beauty & Care'),
             displayText: 'Modern Cosmetics & Beauty',
             images: ['/cosmetic1.jpg', '/cosmetic2.jpg', '/cosmetic3.jpg', '/cosmetic4.jpg']
         },
@@ -31,10 +31,10 @@ const CategorySection = () => {
             images: ['/cloth1.jpg', '/cloth2.jpg', '/cloth3.jpg', '/cloth4.jpg']
         },
         {
-            name: 'Jewelry',
+            name: 'Jewellery',
             banner: jewelryBanner,
-            path: encodeCategoryPath('Jewelry'),
-            displayText: 'Exclusive Jewelry Collection',
+            path: encodeCategoryPath('Jewellery'),
+            displayText: 'Exclusive Jewellery Collection',
             images: ['/jwelry1.jpg', '/jwelry2.jpg', '/jwelry3.jpg', '/jwelry4.jpg']
         }
     ]

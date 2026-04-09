@@ -4,7 +4,7 @@ import Title from './Title'
 
 const ShoppingJourney = () => {
   const steps = [
-    { id: '01', title: 'Discover', text: 'Browse curated collections across Health, Beauty, Fashion, and Jewelry.' },
+    { id: '01', title: 'Discover', text: 'Browse curated collections across Health, Beauty, Fashion, and Jewellery.' },
     { id: '02', title: 'Choose', text: 'Compare trusted options, check details, and select what fits your lifestyle.' },
     { id: '03', title: 'Order', text: 'Secure checkout with smooth order flow and transparent delivery updates.' },
     { id: '04', title: 'Enjoy', text: 'Receive premium products with confidence backed by responsive support.' }

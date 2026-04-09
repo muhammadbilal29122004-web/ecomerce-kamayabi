@@ -15,14 +15,14 @@ const CategoryPage = () => {
     const normalizedCategoryName = normalizeCategory(categoryName);
 
     const categoryData = {
-        Jewelry: {
+        Jewellery: {
             banner: jewelryBanner,
-            title: "Fine Jewelry",
+            title: "Fine Jewellery",
             desc: "Discover our timeless pieces crafted with precision and elegance."
         },
-        "Beauty Core": {
+        "Beauty & Care": {
             banner: cosmeticsBanner,
-            title: "Beauty Core",
+            title: "Beauty & Care",
             desc: "Enhance your natural beauty with our curated collection of luxury makeup."
         },
         "Health & Care": {

@@ -6,13 +6,13 @@ const Testimonials = () => {
         {
             name: "Sarah Ahmed",
             role: "Entrepreneur",
-            text: "The quality of products at Anmool is truly unmatched. I've bought jewelry and cosmetics here, and both were beyond my expectations. Highly recommended!",
+            text: "The quality of products at ANMOOL is truly unmatched. I've bought jewellery and cosmetics here, and both were beyond my expectations. Highly recommended!",
             rating: 5
         },
         {
             name: "Zoya Malik",
             role: "Dermatologist",
-            text: "As a professional, I'm very picky about cosmetics. Anmool's collection is authentic and effective. Their service is top-notch too.",
+            text: "As a professional, I'm very picky about cosmetics. ANMOOL's collection is authentic and effective. Their service is top-notch too.",
             rating: 5
         },
         {
@@ -28,7 +28,7 @@ const Testimonials = () => {
             <div className='text-3xl text-center py-12'>
                 <Title text1={'WHAT OUR'} text2={'CUSTOMERS SAY'} />
                 <p className='w-3/4 m-auto text-xs text-gray-600 sm:text-sm md:text-base'>
-                    Don't just take our word for it. Here's what some of our valued customers have to say about their experience with Anmool.
+                    Don't just take our word for it. Here's what some of our valued customers have to say about their experience with ANMOOL.
                 </p>
             </div>
 

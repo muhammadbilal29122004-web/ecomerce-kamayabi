@@ -19,15 +19,15 @@ const Hero = () => {
             path: `/collection?category=${encodeURIComponent(normalizeCategory("Cloth"))}`
         },
         {
-            title: "Luxury Jewelry",
+            title: "Luxury Jewellery",
             subtitle: "EXQUISITE PIECES",
-            highlight: "Timeless Jewelry",
-            description: "Discover our wide range of elegant and luxurious jewelry designed to make you shine.",
+            highlight: "Timeless Jewellery",
+            description: "Discover our wide range of elegant and luxurious jewellery designed to make you shine.",
             image: jewelryImg,
-            path: `/collection?category=${encodeURIComponent(normalizeCategory("Jewelry"))}`
+            path: `/collection?category=${encodeURIComponent(normalizeCategory("Jewellery"))}`
         },
         {
-            title: "Beauty Core",
+            title: "Beauty & Care",
             subtitle: "BEAUTY DEFINED",
             highlight: "Nature's Palette",
             description: "Enhance your natural beauty with our exclusive collection of high-end cosmetics.",

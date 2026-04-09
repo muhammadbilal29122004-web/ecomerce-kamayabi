@@ -5,8 +5,10 @@ import { toast } from "react-toastify";
 
 const categoryLabelMap = {
   Medicine: "Health & Care",
-  Cosmetics: "Beauty Core",
+  Cosmetics: "Beauty & Care",
   Cloth: "Fashion & Design",
+  "Beauty Core": "Beauty & Care",
+  Jewelry: "Jewellery",
 };
 
 const normalizeCategory = (category = "") =>
@@ -58,7 +60,8 @@ const List = ({ token }) => {
     <>
       <div className="flex flex-col gap-2">
         {/* List Table Title */}
-        <div className="hidden md:grid grid-cols-[0.5fr_1fr_1.5fr_0.5fr_0.5fr_0.5fr_0.2fr] items-center py-1 px-2 border bg-gray-200 text-xl text-center">
+        <div className="hidden md:grid grid-cols-[0.25fr_0.5fr_1fr_1.5fr_0.5fr_0.5fr_0.5fr_0.2fr] items-center py-1 px-2 border bg-gray-200 text-xl text-center">
+          <b>S.No</b>
           <b>Image</b>
           <b>Name</b>
           <b>Description</b>
@@ -70,9 +73,10 @@ const List = ({ token }) => {
         {/* Display Products */}
         {listProducts.map((item, index) => (
           <div
-            className="grid grid-cols-[0.5fr_1fr_1.5fr_0.5fr_0.5fr_0.5fr_0.2fr] md:grid-cols-[0.5fr_1fr_1.5fr_0.5fr_0.5fr_0.5fr_0.2fr] items-center gap-2 py-1 px-2 border text-sm text-center"
+            className="grid grid-cols-[0.25fr_0.5fr_1fr_1.5fr_0.5fr_0.5fr_0.5fr_0.2fr] md:grid-cols-[0.25fr_0.5fr_1fr_1.5fr_0.5fr_0.5fr_0.5fr_0.2fr] items-center gap-2 py-1 px-2 border text-sm text-center"
             key={index}
           >
+            <p>{index + 1}</p>
             <img className="w-12" src={item.image[0]} alt="Product Image" />
             <p className="text-left">{item.name}</p>
             <p className="text-left">{item.description}</p>

@@ -9,7 +9,7 @@ const OurStory = () => {
           Our Full Story
         </h1>
         <p className='text-gray-600 leading-relaxed mb-5'>
-          Anmool was born from a simple idea: everyday shopping should feel premium, trusted, and
+          ANMOOL was born from a simple idea: everyday shopping should feel premium, trusted, and
           personal. We started as a small curated store with a strong focus on quality and quickly
           grew into a lifestyle destination for families who value both elegance and reliability.
         </p>
@@ -25,7 +25,7 @@ const OurStory = () => {
           it is the foundation of our relationship with every customer.
         </p>
         <p className='text-gray-600 leading-relaxed'>
-          As Anmool continues to grow, our mission stays the same: deliver modern style and daily
+          As ANMOOL continues to grow, our mission stays the same: deliver modern style and daily
           essentials with authenticity, comfort, and confidence. Thank you for being part of our
           journey.
         </p>

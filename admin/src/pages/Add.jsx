@@ -6,9 +6,9 @@ import { toast } from "react-toastify";
 
 const categoryOptions = [
   "Health & Care",
-  "Beauty Core",
+  "Beauty & Care",
   "Fashion & Design",
-  "Jewelry",
+  "Jewellery",
 ];
 
 const Add = ({ token }) => {

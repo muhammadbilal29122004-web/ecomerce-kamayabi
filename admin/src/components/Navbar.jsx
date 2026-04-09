@@ -7,7 +7,7 @@ const Navbar = ({ setToken }) => {
     <div className="top-0 left-0 z-50 w-full transition-all duration-300 bg-gray-600 bg-opacity-50 shadow-lg backdrop-blur-md">
       <div className="flex items-center py-2 px-[4%] justify-between">
         <Link to={"/"}>
-          <img className="w-44 h-12 object-contain" src='/anmol logo.jpg' alt="Anmool" />
+          <p className="text-xl font-bold tracking-[0.25em] text-white">ANMOOL</p>
         </Link>
         <button
           onClick={() => setToken("")}

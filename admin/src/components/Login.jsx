@@ -32,7 +32,7 @@ const Login = ({ setToken }) => {
     <div className="flex items-center justify-center w-full min-h-screen">
       <div className="max-w-md px-8 py-6 bg-white rounded-lg shadow-md">
         <div className="mb-3 w-fit">
-          <img src='/anmol logo.jpg' className='w-32 h-12 object-contain' alt="Anmool" />
+          <p className="text-lg font-bold tracking-[0.25em] text-gray-900">ANMOOL</p>
         </div>
         <h1 className="mb-4 text-2xl font-bold">Admin Dashboard</h1>
         <form onSubmit={onSubmitHandler}>

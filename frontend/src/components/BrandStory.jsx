@@ -19,7 +19,7 @@ const BrandStory = () => {
                 </h2>
                 <div className='w-20 h-1 bg-black'></div>
                 <p className='text-gray-600 leading-relaxed text-lg'>
-                    Founded on the principles of quality and timeless style, Anmool has been a 
+                    Founded on the principles of quality and timeless style, ANMOOL has been a
                     pioneer in bringing the finest collections to our customers. Our journey 
                     started with a simple vision: to provide premium products that blend tradition 
                     with modern craftsmanship. 

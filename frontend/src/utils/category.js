@@ -1,15 +1,17 @@
 export const CATEGORY_OPTIONS = [
   "Health & Care",
-  "Beauty Core",
+  "Beauty & Care",
   "Fashion & Design",
-  "Jewelry",
+  "Jewellery",
 ];
 
 const LEGACY_CATEGORY_MAP = {
   Medicine: "Health & Care",
-  Cosmetics: "Beauty Core",
+  Cosmetics: "Beauty & Care",
   Cloth: "Fashion & Design",
-  Jewelry: "Jewelry",
+  Jewelry: "Jewellery",
+  Jewellery: "Jewellery",
+  "Beauty Core": "Beauty & Care",
 };
 
 export const normalizeCategory = (category = "") =>

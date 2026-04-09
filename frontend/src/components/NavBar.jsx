@@ -9,8 +9,8 @@ const NavBar = () => {
     const { setShowSearch, getCartCount, navigate, token, setToken, setCartItems } = useContext(ShopContext);
     const navLinks = [
         { label: 'HOME', to: '/' },
-        { label: 'JEWELRY', to: encodeCategoryPath('Jewelry') },
-        { label: 'BEAUTY CORE', to: encodeCategoryPath('Beauty Core') },
+        { label: 'JEWELLERY', to: encodeCategoryPath('Jewellery') },
+        { label: 'BEAUTY & CARE', to: encodeCategoryPath('Beauty & Care') },
         { label: 'HEALTH & CARE', to: encodeCategoryPath('Health & Care') },
         { label: 'FASHION & DESIGN', to: encodeCategoryPath('Fashion & Design') },
     ];
@@ -28,7 +28,7 @@ const NavBar = () => {
             <div className='sticky top-3 z-40 mb-3'>
                 <div className='flex items-center justify-between rounded-2xl border border-white/70 bg-white/75 px-4 py-3 shadow-[0_12px_30px_rgba(15,23,42,0.12)] backdrop-blur-xl sm:px-6 sm:py-4'>
                     <Link to='/'>
-                        <img src='/anmol logo.jpg' className='h-10 w-28 object-contain sm:h-12 sm:w-36' alt="Anmool" />
+                        <p className='text-lg font-bold tracking-[0.25em] text-gray-900 sm:text-xl'>ANMOOL</p>
                     </Link>
 
                     <ul className='hidden items-center gap-2 rounded-full bg-gray-100/70 p-1.5 lg:flex'>
@@ -121,7 +121,7 @@ const NavBar = () => {
                         )}
                     </div>
                     <div className='mt-auto p-8 text-center opacity-40'>
-                        <img src='/anmol logo.jpg' className='mx-auto w-24 object-contain grayscale' alt="Anmool" />
+                        <p className='mx-auto text-base font-bold tracking-[0.3em] text-gray-700'>ANMOOL</p>
                         <p className='mt-3 text-[10px] tracking-widest'>SINCE 2026</p>
                     </div>
                 </div>
