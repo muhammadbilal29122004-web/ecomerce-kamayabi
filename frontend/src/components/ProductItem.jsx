@@ -3,11 +3,11 @@ import { ShopContext } from "../context/ShopContext";
 import { Link } from "react-router-dom";
 
 const ProductItem = ({ id, image, name, price }) => {
-  const { currency } = useContext(ShopContext);
+  const { formatPKR } = useContext(ShopContext);
 
   return (
-    <Link className="text-gray-700 cursor-pointer" to={`/product/${id}`}>
-      <div className="overflow-hidden rounded-lg aspect-[3/4] bg-gray-100">
+    <Link className="cursor-pointer text-emerald-900/85" to={`/product/${id}`}>
+      <div className="aspect-[3/4] overflow-hidden rounded-lg bg-emerald-50/40 shadow-sm transition-shadow hover:shadow-md">
         <img
           className="w-full h-full object-cover transition ease-in-out hover:scale-110"
           src={image[0]}
@@ -15,13 +15,7 @@ const ProductItem = ({ id, image, name, price }) => {
         />
       </div>
       <p className="pt-3 pb-1 text-sm">{name}</p>
-      <p className="text-sm font-medium">
-        {currency}&nbsp;
-        {price.toLocaleString(undefined, {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })}
-      </p>
+      <p className="text-sm font-medium">{formatPKR(price)}</p>
     </Link>
   );
 };

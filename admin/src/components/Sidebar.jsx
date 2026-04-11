@@ -4,37 +4,46 @@ import { assets } from "../assets/assets";
 
 const Sidebar = () => {
   return (
-    <div className="w-[18%] min-h-screen border-r-2">
-      <div className="flex flex-col gap-4 pt-6 pl-[20%] text-[15px]">
+    <aside className="hidden w-56 shrink-0 border-r border-emerald-100/90 bg-emerald-50/40 md:block lg:w-64">
+      <nav className="flex flex-col gap-2 p-4 pt-8">
         <NavLink
-          className={
-            "flex items-center gap-3 border border-gray-500 border-r-0 px-3 py-2 rounded-lg bg-gray-200"
+          to="/add"
+          className={({ isActive }) =>
+            `admin-nav-link ${isActive ? "admin-nav-active" : ""}`
           }
-          to={"/add"}
         >
-          <img className="w-6 h-6" src={assets.add_icon} alt="Add Items" />
-          <p className="hidden text-lg font-semibold md:block">Add Items</p>
+          <img className="h-6 w-6 opacity-90" src={assets.add_icon} alt="" />
+          <span>Add product</span>
         </NavLink>
         <NavLink
-          className={
-            "flex items-center gap-3 border border-gray-500 border-r-0 px-3 py-2 rounded-lg bg-gray-200"
+          to="/list"
+          className={({ isActive }) =>
+            `admin-nav-link ${isActive ? "admin-nav-active" : ""}`
           }
-          to={"/list"}
         >
-          <img className="w-6 h-6" src={assets.parcel_icon} alt="List Items" />
-          <p className="hidden text-lg font-semibold md:block">List Items</p>
+          <img className="h-6 w-6 opacity-90" src={assets.parcel_icon} alt="" />
+          <span>All products</span>
         </NavLink>
         <NavLink
-          className={
-            "flex items-center gap-3 border border-gray-500 border-r-0 px-3 py-2 rounded-lg bg-gray-200"
+          to="/orders"
+          className={({ isActive }) =>
+            `admin-nav-link ${isActive ? "admin-nav-active" : ""}`
           }
-          to={"/orders"}
         >
-          <img className="w-6 h-6" src={assets.order_icon} alt="Add Products" />
-          <p className="hidden text-lg font-semibold md:block">View Orders</p>
+          <img className="h-6 w-6 opacity-90" src={assets.order_icon} alt="" />
+          <span>Orders</span>
         </NavLink>
-      </div>
-    </div>
+        <NavLink
+          to="/home-content"
+          className={({ isActive }) =>
+            `admin-nav-link ${isActive ? "admin-nav-active" : ""}`
+          }
+        >
+          <img className="h-6 w-6 opacity-90" src={assets.upload_area} alt="" />
+          <span>Home page media</span>
+        </NavLink>
+      </nav>
+    </aside>
   );
 };
 

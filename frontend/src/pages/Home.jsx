@@ -18,9 +18,9 @@ const WHATSAPP_HREF = `https://wa.me/${WHATSAPP_NUMBER}`
 const Home = () => {
   return (
     <div className='relative overflow-hidden'>
-      <div className='pointer-events-none absolute -top-24 -left-24 h-56 w-56 rounded-full bg-blue-100/40 blur-3xl'></div>
-      <div className='pointer-events-none absolute top-1/3 -right-20 h-56 w-56 rounded-full bg-rose-100/40 blur-3xl'></div>
-      <div className='pointer-events-none absolute bottom-16 left-1/4 h-40 w-40 rounded-full bg-amber-100/40 blur-3xl'></div>
+      <div className='pointer-events-none absolute -top-24 -left-24 h-56 w-56 rounded-full bg-emerald-200/35 blur-3xl'></div>
+      <div className='pointer-events-none absolute top-1/3 -right-20 h-56 w-56 rounded-full bg-white/80 blur-3xl'></div>
+      <div className='pointer-events-none absolute bottom-16 left-1/4 h-40 w-40 rounded-full bg-emerald-100/50 blur-3xl'></div>
 
       <Hero />
       <Stats />

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import Title from "./Title";
 import ProductItem from "./ProductItem";
+import HorizontalCardRow from "./HorizontalCardRow";
 
 const LatestCollection = () => {
   const { products } = useContext(ShopContext);
@@ -21,8 +22,7 @@ const LatestCollection = () => {
         </p>
       </div>
 
-      {/* Rendering Product Items */}
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-6">
+      <HorizontalCardRow>
         {latestProducts.map((item, index) => (
           <ProductItem
             key={index}
@@ -32,7 +32,7 @@ const LatestCollection = () => {
             price={item.price}
           />
         ))}
-      </div>
+      </HorizontalCardRow>
     </div>
   );
 };

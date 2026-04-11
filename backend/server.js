@@ -6,6 +6,7 @@ import connectCloudinary from "./config/cloudinary.js";
 import userRouter from "./routes/userRoute.js";
 import productRouter from "./routes/productRoute.js";
 import orderRouter from "./routes/orderRoute.js";
+import homeContentRouter from "./routes/homeContentRoute.js";
 
 // INFO: Create express app
 const app = express();
@@ -45,6 +46,7 @@ app.options("*", cors(corsOptions));
 app.use("/api/user", userRouter);
 app.use("/api/product", productRouter);
 app.use("/api/order", orderRouter);
+app.use("/api/home-content", homeContentRouter);
 
 // INFO: Default route
 app.get("/", (req, res) => {

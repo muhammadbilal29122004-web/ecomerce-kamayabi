@@ -5,6 +5,18 @@ import axios from "axios";
 
 export const ShopContext = createContext();
 
+/** Single cart line key — sizes removed from storefront */
+const CART_SKU = "default";
+
+/** Pakistani Rupees — display helper */
+export const formatPKR = (amount) =>
+  new Intl.NumberFormat("en-PK", {
+    style: "currency",
+    currency: "PKR",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+  }).format(Number(amount) || 0);
+
 const ShopContextProvider = (props) => {
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(false);
@@ -12,13 +24,12 @@ const ShopContextProvider = (props) => {
   const [products, setProducts] = useState([]);
   const [token, setToken] = useState("");
 
-  const currency = "AED";
-  const delivery_fee = 200;
+  /** Flat shipping in PKR */
+  const delivery_fee = 300;
   const backendUrl = (import.meta.env.VITE_BACKEND_URL || "").replace(/\/+$/, "");
 
   const navigate = useNavigate();
 
-  // Fetch products from backend
   const fetchProducts = async () => {
     try {
       const response = await axios.get(`${backendUrl}/api/product/list`);
@@ -36,7 +47,6 @@ const ShopContextProvider = (props) => {
     fetchProducts();
   }, []);
 
-  // Load token from localStorage on mount
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken) {
@@ -44,7 +54,6 @@ const ShopContextProvider = (props) => {
     }
   }, []);
 
-  // Load cart from localStorage on mount
   useEffect(() => {
     const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
     if (storedCartItems) {
@@ -52,30 +61,25 @@ const ShopContextProvider = (props) => {
     }
   }, []);
 
-  // Persist cart to localStorage on change
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const addToCart = async (itemId, size) => {
-    if (!size) {
-      toast.error("Please Select a Size");
-      return;
-    } else {
-      toast.success("Item Added To The Cart");
-    }
+  const addToCart = async (itemId, size = CART_SKU) => {
+    const sku = size || CART_SKU;
+    toast.success("Item Added To The Cart");
 
     let cartData = structuredClone(cartItems);
 
     if (cartData[itemId]) {
-      if (cartData[itemId][size]) {
-        cartData[itemId][size] += 1;
+      if (cartData[itemId][sku]) {
+        cartData[itemId][sku] += 1;
       } else {
-        cartData[itemId][size] = 1;
+        cartData[itemId][sku] = 1;
       }
     } else {
       cartData[itemId] = {};
-      cartData[itemId][size] = 1;
+      cartData[itemId][sku] = 1;
     }
 
     setCartItems(cartData);
@@ -96,12 +100,19 @@ const ShopContextProvider = (props) => {
   };
 
   const updateQuantity = async (itemId, size, quantity) => {
+    const sku = size || CART_SKU;
+    let cartData = structuredClone(cartItems);
+    if (!cartData[itemId]) return;
+
     if (quantity === 0) {
       toast.success("Item Removed From The Cart");
+      delete cartData[itemId][sku];
+      if (Object.keys(cartData[itemId]).length === 0) {
+        delete cartData[itemId];
+      }
+    } else {
+      cartData[itemId][sku] = quantity;
     }
-
-    let cartData = structuredClone(cartItems);
-    cartData[itemId][size] = quantity;
     setCartItems(cartData);
   };
 
@@ -123,7 +134,7 @@ const ShopContextProvider = (props) => {
 
   const value = {
     products,
-    currency,
+    formatPKR,
     delivery_fee,
     search,
     setSearch,

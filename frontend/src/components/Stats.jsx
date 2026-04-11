@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react'
 
 const stats = [
     { label: 'HAPPY CUSTOMERS', value: '10K+', note: 'Trusted by families daily' },
-    { label: 'CATEGORIES', value: '6+', note: 'Curated premium essentials' },
+    { label: 'CATEGORIES', value: '8+', note: 'Curated premium essentials' },
     { label: 'PRODUCTS READY', value: '500+', note: 'Quality checked inventory' },
     { label: 'YEARS TRUSTED', value: '15+', note: 'Consistent service excellence' }
 ]
@@ -50,15 +50,15 @@ const Stats = () => {
                 {stats.map((item, index) => (
                     <div 
                         key={index} 
-                        className='group relative overflow-hidden bg-white/95 p-5 sm:p-7 flex flex-col items-center justify-center text-center rounded-3xl border border-gray-100 shadow-[0_10px_30px_rgba(17,24,39,0.08)] hover:shadow-[0_16px_40px_rgba(17,24,39,0.14)] hover:-translate-y-1 transition-all duration-300 ease-out cursor-default'
+                        className='group relative flex cursor-default flex-col items-center justify-center overflow-hidden rounded-3xl bg-white/95 p-5 text-center shadow-[0_10px_30px_rgba(6,78,59,0.08)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(6,78,59,0.12)] sm:p-7'
                     >
-                        <div className='absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-gray-900 via-gray-600 to-gray-300 opacity-80'></div>
+                        <div className='absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-emerald-800 via-emerald-500 to-emerald-200 opacity-90'></div>
                         <div className='relative'>
-                            <h5 className='text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight group-hover:scale-105 transition-transform duration-300'>
+                            <h5 className='text-3xl font-extrabold tracking-tight text-emerald-900 transition-transform duration-300 group-hover:scale-105 sm:text-4xl'>
                                 {animatedValues[index]}{parsedStats[index].suffix}
                             </h5>
                         </div>
-                        <p className='text-gray-500 text-[9px] sm:text-[10px] tracking-[0.28em] font-semibold uppercase mt-2 group-hover:text-gray-700 transition-colors duration-300'>
+                        <p className='mt-2 text-[9px] font-semibold uppercase tracking-[0.28em] text-emerald-700/80 transition-colors duration-300 group-hover:text-emerald-800 sm:text-[10px]'>
                             {item.label}
                         </p>
                         <p className='text-[10px] sm:text-xs text-gray-400 mt-2 sm:mt-3'>

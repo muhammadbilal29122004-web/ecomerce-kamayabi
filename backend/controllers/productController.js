@@ -1,6 +1,16 @@
 import { v2 as cloudinary } from "cloudinary";
 import productModel from "../models/productModel.js";
 
+const parseSizes = (raw) => {
+  if (raw === undefined || raw === null || raw === "") return [];
+  try {
+    const v = typeof raw === "string" ? JSON.parse(raw) : raw;
+    return Array.isArray(v) ? v : [];
+  } catch {
+    return [];
+  }
+};
+
 // INFO: Route for adding a product
 const addProduct = async (req, res) => {
   try {
@@ -37,8 +47,8 @@ const addProduct = async (req, res) => {
       description,
       price: Number(price),
       category,
-      subCategory,
-      sizes: JSON.parse(sizes),
+      subCategory: subCategory || "",
+      sizes: parseSizes(sizes),
       bestSeller: bestSeller === "true" ? true : false,
       image: imageUrls,
       date: Date.now(),
@@ -113,8 +123,8 @@ const updateProduct = async (req, res) => {
       description,
       price: Number(price),
       category,
-      subCategory,
-      sizes: JSON.parse(sizes),
+      subCategory: subCategory || "",
+      sizes: parseSizes(sizes),
       bestSeller: bestSeller === "true" || bestSeller === true,
       image: images,
     });

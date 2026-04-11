@@ -15,35 +15,62 @@ import SearchBar from './components/SearchBar'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const RIBBON_ITEMS = [
+  'TAVEEZAT-E-QURANI',
+  'ROOHANI ILAJ',
+  'MANPASAND SHADI',
+  'KAROBARI BANDISH',
+  'AULAD KA MASLA',
+  'KALA JADU SE HIFAZAT',
+  'ISTIKHARA-O-MUSHWARA',
+  'KAMAYABI',
+]
+
+const RibbonTrack = ({ trackKey }) => (
+  <div className='flex shrink-0 items-center gap-x-4 px-8 py-2.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-white sm:gap-x-6 sm:px-12 sm:text-xs sm:tracking-[0.28em]'>
+    {RIBBON_ITEMS.map((label, i) => (
+      <React.Fragment key={`${trackKey}-${i}`}>
+        {i > 0 ? (
+          <span className='select-none text-emerald-200/90' aria-hidden>
+            ◇
+          </span>
+        ) : null}
+        <span className='whitespace-nowrap'>{label}</span>
+      </React.Fragment>
+    ))}
+  </div>
+)
+
 const App = () => {
   return (
-    <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+    <>
       <ToastContainer />
-      {/* Sliding Ribbon */}
-      <div className='w-full bg-black text-white text-xs py-2 overflow-hidden'>
-        <div className='flex whitespace-nowrap animate-marquee'>
-          {[...Array(4)].map((_, i) => (
-            <span key={i} className='mx-12'>
-              Free Delivery on Orders Above AED 500 &nbsp;&nbsp;|&nbsp;&nbsp; Cash on Delivery Available &nbsp;&nbsp;|&nbsp;&nbsp; Easy Returns & Exchanges within 10 Days &nbsp;&nbsp;|&nbsp;&nbsp; 100% Authentic Products Guaranteed &nbsp;&nbsp;|&nbsp;&nbsp; Shop the Latest Summer Collection 2025
-            </span>
-          ))}
+      {/* Full-bleed top ribbon (outside horizontal padding) */}
+      <div className='w-full bg-emerald-900 text-white shadow-[inset_0_-1px_0_rgba(0,0,0,0.15)]'>
+        <div className='overflow-hidden'>
+          <div className='flex w-max animate-marquee'>
+            <RibbonTrack trackKey='a' />
+            <RibbonTrack trackKey='b' />
+          </div>
         </div>
       </div>
-      <NavBar />
-      <SearchBar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/collection' element={<Collection />} />
-        <Route path='/category/:categoryName' element={<CategoryPage />} />
-        <Route path='/our-story' element={<OurStory />} />
-        <Route path='/product/:productId' element={<Product />} />
-        <Route path='/cart' element={<Cart />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/place-order' element={<PlaceOrder />} />
-        <Route path='/orders' element={<Orders />} />
-      </Routes>
-      <Footer />
-    </div>
+      <div className='min-h-screen bg-gradient-to-b from-white via-emerald-50/50 to-emerald-50 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+        <NavBar />
+        <SearchBar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/collection' element={<Collection />} />
+          <Route path='/category/:categoryName' element={<CategoryPage />} />
+          <Route path='/our-story' element={<OurStory />} />
+          <Route path='/product/:productId' element={<Product />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/place-order' element={<PlaceOrder />} />
+          <Route path='/orders' element={<Orders />} />
+        </Routes>
+        <Footer />
+      </div>
+    </>
   )
 }
 

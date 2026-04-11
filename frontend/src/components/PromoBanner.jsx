@@ -1,11 +1,14 @@
 import React from 'react'
 import promoImg from '../assets/promo_banner.png'
+import { useHomeContent } from '../context/HomeContentContext'
 
 const PromoBanner = () => {
+    const { promoBannerUrl } = useHomeContent()
+    const src = promoBannerUrl || promoImg
     return (
-        <div className='relative w-full h-[500px] my-20 overflow-hidden bg-black rounded-3xl'>
+        <div className='relative my-12 sm:my-20 h-[min(58vw,280px)] min-h-[240px] max-h-[320px] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-950 sm:h-[min(42vh,420px)] sm:max-h-none sm:min-h-[360px] md:rounded-3xl lg:h-[460px]'>
             <img 
-                src={promoImg} 
+                src={src} 
                 alt="Promo Banner" 
                 className='w-full h-full object-cover opacity-60 hover:scale-105 transition-transform duration-[2000ms]'
             />
@@ -19,7 +22,7 @@ const PromoBanner = () => {
                     Meticulously crafted for the highest standards of luxury and performance.
                 </p>
                 <div className='flex gap-4 flex-col sm:flex-row'>
-                    <button className='px-12 py-4 bg-white text-black text-sm font-bold rounded-full hover:bg-gray-200 transition-all duration-300 transform hover:scale-105'>
+                    <button className='transform rounded-full bg-white px-12 py-4 text-sm font-bold text-emerald-800 transition-all duration-300 hover:scale-105 hover:bg-emerald-50'>
                         SHOP THE COLLECTION
                     </button>
                     <button className='px-12 py-4 border border-white text-white text-sm font-bold rounded-full hover:bg-white/10 transition-all duration-300 transform hover:scale-105'>
@@ -30,7 +33,7 @@ const PromoBanner = () => {
             <div className='absolute top-10 right-10 flex gap-4 text-white opacity-40 text-xs tracking-widest uppercase hidden lg:flex'>
                 <span>SINCE 2026</span>
                 <span>•</span>
-                <span>ANMOOL ORIGINAL</span>
+                <span>KAMAYABI ORIGINAL</span>
             </div>
         </div>
     )

@@ -4,6 +4,7 @@ import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
 import Title from "../components/Title";
 import ProductItem from "../components/ProductItem";
+import HorizontalCardRow from "../components/HorizontalCardRow";
 import { CATEGORY_OPTIONS, normalizeCategory } from "../utils/category";
 
 const Collection = () => {
@@ -16,9 +17,8 @@ const Collection = () => {
       ? [normalizeCategory(searchParams.get("category"))]
       : []
   );
-  const [subCategory, setSubCategory] = useState([]);
   const [sortType, setSortType] = useState("relevant");
-  
+
   useEffect(() => {
     const categoryParam = searchParams.get("category");
     if (categoryParam) {
@@ -36,14 +36,6 @@ const Collection = () => {
     }
   };
 
-  const toggleSubCategory = (e) => {
-    if (subCategory.includes(e.target.value)) {
-      setSubCategory((prev) => prev.filter((item) => item !== e.target.value));
-    } else {
-      setSubCategory((prev) => [...prev, e.target.value]);
-    }
-  };
-
   const applyFilter = () => {
     let productsCopy = products.slice();
 
@@ -56,11 +48,6 @@ const Collection = () => {
     if (category.length > 0) {
       productsCopy = productsCopy.filter((item) =>
         category.includes(normalizeCategory(item.category))
-      );
-    }
-    if (subCategory.length > 0) {
-      productsCopy = productsCopy.filter((item) =>
-        subCategory.includes(item.subCategory)
       );
     }
 
@@ -85,12 +72,11 @@ const Collection = () => {
 
   const clearFilters = () => {
     setCategory([]);
-    setSubCategory([]);
   };
 
   useEffect(() => {
     applyFilter();
-  }, [category, subCategory, search, showSearch, products]);
+  }, [category, search, showSearch, products]);
 
   useEffect(() => {
     sortProduct();
@@ -98,7 +84,6 @@ const Collection = () => {
 
   return (
     <div className="flex flex-col gap-1 pt-10 border-t sm:flex-row sm:gap-10">
-      {/* Filter Options */}
       <div className="min-w-60">
         <p
           onClick={() => setShowFilter(!showFilter)}
@@ -111,7 +96,6 @@ const Collection = () => {
             alt="Dropdown"
           />
         </p>
-        {/* Category Filters */}
         <div
           className={`border border-gray-300 pl-5 py-3 mt-6 ${
             showFilter ? "" : "hidden"
@@ -133,49 +117,8 @@ const Collection = () => {
             ))}
           </div>
         </div>
-        {/* Sub Category Filters */}
-        <div
-          className={`border border-gray-300 pl-5 py-3 my-5 ${
-            showFilter ? "" : "hidden"
-          } sm:block`}
-        >
-          <p className="mb-3 text-sm font-medium">TYPES</p>
-          <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
-            <label className="flex gap-2 cursor-pointer">
-              <input
-                className="w-3"
-                type="checkbox"
-                value={"Topwear"}
-                onChange={toggleSubCategory}
-                checked={subCategory.includes("Topwear")}
-              />
-              Topwear
-            </label>
-            <label className="flex gap-2 cursor-pointer">
-              <input
-                className="w-3"
-                type="checkbox"
-                value={"Bottomwear"}
-                onChange={toggleSubCategory}
-                checked={subCategory.includes("Bottomwear")}
-              />
-              Bottomwear
-            </label>
-            <label className="flex gap-2 cursor-pointer">
-              <input
-                className="w-3"
-                type="checkbox"
-                value={"Winterwear"}
-                onChange={toggleSubCategory}
-                checked={subCategory.includes("Winterwear")}
-              />
-              Winterwear
-            </label>
-          </div>
-        </div>
-        {/* Clear Filters Button */}
         <button
-          className={`px-4 py-2 mt-1 text-white bg-black rounded hover:bg-gray-900 ${
+          className={`mt-4 rounded bg-emerald-700 px-4 py-2 text-white hover:bg-emerald-800 ${
             showFilter ? "block" : "hidden"
           } sm:block`}
           onClick={clearFilters}
@@ -184,11 +127,9 @@ const Collection = () => {
         </button>
       </div>
 
-      {/* View Product Items */}
       <div className="flex-1">
         <div className="flex justify-between mb-4 text-base sm:text-2xl">
           <Title text1={"ALL"} text2={"COLLECTIONS"} />
-          {/* Product Sort */}
           <select
             onChange={(e) => setSortType(e.target.value)}
             className="px-2 text-sm border-2 border-gray-300"
@@ -198,8 +139,7 @@ const Collection = () => {
             <option value="high-low">Sort by: High to Low</option>
           </select>
         </div>
-        {/* Map Products */}
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 gap-y-6">
+        <HorizontalCardRow gridClassName="md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-3 xl:grid-cols-4 md:gap-y-6">
           {filterProducts.map((item, index) => (
             <ProductItem
               key={index}
@@ -209,7 +149,7 @@ const Collection = () => {
               price={item.price}
             />
           ))}
-        </div>
+        </HorizontalCardRow>
       </div>
     </div>
   );

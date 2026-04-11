@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import Title from "./Title";
 import ProductItem from "./ProductItem";
+import HorizontalCardRow from "./HorizontalCardRow";
 
 const BestSeller = () => {
   const { products } = useContext(ShopContext);
@@ -21,7 +22,7 @@ const BestSeller = () => {
           won over shoppers with their quality, style, and value.
         </p>
       </div>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-6">
+      <HorizontalCardRow>
         {bestSeller.map((item, index) => (
           <ProductItem
             key={index}
@@ -31,7 +32,7 @@ const BestSeller = () => {
             price={item.price}
           />
         ))}
-      </div>
+      </HorizontalCardRow>
     </div>
   );
 };

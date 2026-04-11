@@ -4,26 +4,42 @@ import Title from './Title'
 
 const ShoppingJourney = () => {
   const steps = [
-    { id: '01', title: 'Discover', text: 'Browse curated collections across Health, Beauty, Fashion, and Jewellery.' },
-    { id: '02', title: 'Choose', text: 'Compare trusted options, check details, and select what fits your lifestyle.' },
-    { id: '03', title: 'Order', text: 'Secure checkout with smooth order flow and transparent delivery updates.' },
-    { id: '04', title: 'Enjoy', text: 'Receive premium products with confidence backed by responsive support.' }
+    {
+      id: '01',
+      title: 'Explore',
+      text: 'Browse Surah, Naqsh, Taveez, Istikhara, Loh, Cara, rings, and stones — each category described clearly and curated for KAMAYABI.'
+    },
+    {
+      id: '02',
+      title: 'Select',
+      text: 'Compare options, read photos and details, and message us on WhatsApp anytime you want a second opinion before you decide.'
+    },
+    {
+      id: '03',
+      title: 'Checkout',
+      text: 'Complete your order with secure payment and stay informed with updates from confirmation through dispatch.'
+    },
+    {
+      id: '04',
+      title: 'Receive',
+      text: 'Your pieces arrive carefully packed. Our team stays reachable after delivery if you have follow-up questions.'
+    }
   ]
 
   return (
-    <div className='my-20 rounded-[2.5rem] border border-gray-100 bg-gradient-to-br from-white to-gray-50 p-6 sm:p-10 shadow-inner'>
+    <div className='my-20 rounded-[2.5rem] bg-gradient-to-br from-white to-gray-50 p-6 sm:p-10 shadow-inner'>
       <div className='text-center mb-10'>
-        <Title text1={'A BETTER'} text2={'SHOPPING JOURNEY'} />
+        <Title text1={'YOUR JOURNEY'} text2={'WITH KAMAYABI'} />
         <p className='max-w-2xl mx-auto text-sm sm:text-base text-gray-600'>
-          Designed to be seamless from first click to final delivery.
+          From your first visit to delivery at your door — a straightforward, transparent path with guidance when you need it.
         </p>
       </div>
 
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6'>
         {steps.map((step) => (
-          <div key={step.id} className='bg-white rounded-2xl border border-gray-100 p-5 shadow-sm'>
+          <div key={step.id} className='bg-white rounded-2xl p-5 shadow-sm'>
             <p className='text-xs font-bold tracking-[0.25em] text-gray-400 mb-3'>{step.id}</p>
-            <h4 className='text-lg font-bold text-gray-900 mb-2'>{step.title}</h4>
+            <h4 className='mb-2 text-lg font-bold text-emerald-900'>{step.title}</h4>
             <p className='text-sm text-gray-600 leading-relaxed'>{step.text}</p>
           </div>
         ))}
@@ -31,8 +47,8 @@ const ShoppingJourney = () => {
 
       <div className='mt-8 flex items-center justify-center'>
         <Link to='/collection'>
-          <button className='px-8 py-3 rounded-full bg-black text-white text-sm font-semibold hover:bg-gray-800 transition-colors duration-300'>
-            START SHOPPING
+          <button className='rounded-full bg-emerald-700 px-8 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-emerald-800'>
+            BROWSE COLLECTION
           </button>
         </Link>
       </div>

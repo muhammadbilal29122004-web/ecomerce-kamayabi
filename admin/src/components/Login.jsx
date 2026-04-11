@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { assets } from "../assets/assets";
 import axios from "axios";
 import { backendUrl } from "../App";
 import { toast } from "react-toastify";
@@ -29,42 +28,66 @@ const Login = ({ setToken }) => {
   };
 
   return (
-    <div className="flex items-center justify-center w-full min-h-screen">
-      <div className="max-w-md px-8 py-6 bg-white rounded-lg shadow-md">
-        <div className="mb-3 w-fit">
-          <p className="text-lg font-bold tracking-[0.25em] text-gray-900">ANMOOL</p>
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-emerald-100/90 via-white to-emerald-50 px-4 py-12">
+      <div className="w-full max-w-md rounded-2xl border border-emerald-100/90 bg-white/95 p-8 shadow-[0_20px_60px_rgba(6,78,59,0.12)]">
+        <div className="mb-8 text-center">
+          <p className="text-xl font-bold tracking-[0.3em] text-emerald-950">
+            KAMAYABI
+          </p>
+          <p className="mt-1 text-xs font-medium uppercase tracking-[0.4em] text-emerald-700/90">
+            Admin portal
+          </p>
         </div>
-        <h1 className="mb-4 text-2xl font-bold">Admin Dashboard</h1>
-        <form onSubmit={onSubmitHandler}>
-          <div className="mb-3 min-w-72">
-            <p className="mb-2 text-sm font-medium text-gray-700">Email</p>
+        <h1 className="mb-6 text-center text-2xl font-bold text-emerald-950">
+          Sign in
+        </h1>
+        <form onSubmit={onSubmitHandler} className="space-y-5">
+          <div>
+            <label
+              htmlFor="admin-email"
+              className="mb-2 block text-sm font-semibold text-emerald-900/85"
+            >
+              Email
+            </label>
             <input
+              id="admin-email"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md outline-none"
+              className="w-full rounded-xl border-2 border-emerald-100 bg-emerald-50/30 px-4 py-3 text-emerald-950 placeholder:text-emerald-800/40"
               type="email"
-              placeholder="your@email.com"
+              placeholder="admin@example.com"
+              autoComplete="email"
               required
             />
           </div>
           <div>
-            <p className="mb-2 text-sm font-medium text-gray-700">Password</p>
+            <label
+              htmlFor="admin-password"
+              className="mb-2 block text-sm font-semibold text-emerald-900/85"
+            >
+              Password
+            </label>
             <input
+              id="admin-password"
               onChange={(e) => setPassword(e.target.value)}
               value={password}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md outline-none"
+              className="w-full rounded-xl border-2 border-emerald-100 bg-emerald-50/30 px-4 py-3 text-emerald-950 placeholder:text-emerald-800/40"
               type="password"
-              placeholder="Enter your password"
+              placeholder="••••••••"
+              autoComplete="current-password"
               required
             />
           </div>
           <button
-            className="w-full px-4 py-2 mt-5 text-white bg-black rounded-md"
+            className="w-full rounded-xl bg-emerald-700 py-3.5 text-sm font-bold tracking-wide text-white shadow-lg shadow-emerald-900/20 transition hover:bg-emerald-800"
             type="submit"
           >
             Login
           </button>
         </form>
+        <p className="mt-8 text-center text-xs text-emerald-800/50">
+          KAMAYABI store management — products & orders
+        </p>
       </div>
     </div>
   );

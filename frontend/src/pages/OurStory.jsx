@@ -4,12 +4,12 @@ const OurStory = () => {
   return (
     <div className='my-16 sm:my-20'>
       <div className='max-w-5xl mx-auto bg-white rounded-3xl shadow-lg p-6 sm:p-10 md:p-14 border border-gray-100'>
-        <p className='text-xs sm:text-sm tracking-[0.3em] text-gray-500 mb-4'>THE ANMOOL LEGACY</p>
-        <h1 className='text-3xl sm:text-5xl font-bold text-gray-900 leading-tight mb-6'>
+        <p className='text-xs sm:text-sm tracking-[0.3em] text-gray-500 mb-4'>THE KAMAYABI LEGACY</p>
+        <h1 className='mb-6 text-3xl leading-tight font-bold text-emerald-950 sm:text-5xl'>
           Our Full Story
         </h1>
         <p className='text-gray-600 leading-relaxed mb-5'>
-          ANMOOL was born from a simple idea: everyday shopping should feel premium, trusted, and
+          KAMAYABI was born from a simple idea: everyday shopping should feel premium, trusted, and
           personal. We started as a small curated store with a strong focus on quality and quickly
           grew into a lifestyle destination for families who value both elegance and reliability.
         </p>
@@ -25,7 +25,7 @@ const OurStory = () => {
           it is the foundation of our relationship with every customer.
         </p>
         <p className='text-gray-600 leading-relaxed'>
-          As ANMOOL continues to grow, our mission stays the same: deliver modern style and daily
+          As KAMAYABI continues to grow, our mission stays the same: deliver modern style and daily
           essentials with authenticity, comfort, and confidence. Thank you for being part of our
           journey.
         </p>

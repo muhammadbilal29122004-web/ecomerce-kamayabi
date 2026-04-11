@@ -5,7 +5,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 
 const Orders = () => {
-  const { backendUrl, token, currency } = useContext(ShopContext);
+  const { backendUrl, token, formatPKR } = useContext(ShopContext);
   const [orderData, setOrderData] = useState([]);
 
   const loadOrderData = async () => {
@@ -57,9 +57,8 @@ const Orders = () => {
                 <div>
                   <p className='font-medium sm:text-base'>{item.name}</p>
                   <div className='flex items-center gap-3 mt-2 text-base text-gray-700'>
-                    <p className='text-lg'>{currency}&nbsp;{item.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                    <p className='text-lg'>{formatPKR(item.price)}</p>
                     <p>Quantity:&nbsp;{item.quantity}</p>
-                    <p>Size:&nbsp;{item.size}</p>
                   </div>
                   <p className='mt-2'>Date:&nbsp;<span className='text-gray-400'>{new Date(item.date).toDateString()}</span></p>
                   <p className='mt-1'>Payment:&nbsp;<span className='text-gray-400'>{item.paymentMethod}</span></p>

@@ -2,30 +2,30 @@ import React, { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../context/ShopContext'
 import Title from '../components/Title'
 import ProductItem from '../components/ProductItem'
+import HorizontalCardRow from '../components/HorizontalCardRow'
 import { normalizeCategory } from '../utils/category'
 
-const RelatedProducts = ({category, subCategory}) => {
+const RelatedProducts = ({ category }) => {
 
     const {products} = useContext(ShopContext);
     const [related, setRelated] = useState([]);
 
     useEffect(() => {
-        if (products.length > 0) {
+        if (products.length > 0 && category) {
             let productsCopy = products.slice();
             productsCopy = productsCopy.filter(
               (item) => normalizeCategory(category) === normalizeCategory(item.category)
             );
-            productsCopy = productsCopy.filter((item) => subCategory === item.subCategory);
             setRelated(productsCopy.slice(0, 5));
         }
-    }, [products, category, subCategory]);
+    }, [products, category]);
 
   return (
     <div className='my-24'>
         <div className='py-2 text-3xl text-center'>
             <Title text1={'RELATED'} text2={'PRODUCTS'} />
         </div>
-        <div className='grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-6'>
+        <HorizontalCardRow>
             {related.map((item, index) => (
                 <ProductItem
                     key={index}
@@ -35,7 +35,7 @@ const RelatedProducts = ({category, subCategory}) => {
                     price={item.price}
                 />
             ))}
-        </div>
+        </HorizontalCardRow>
     </div>
   )
 }

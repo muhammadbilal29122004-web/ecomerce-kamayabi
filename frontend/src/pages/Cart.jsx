@@ -5,7 +5,7 @@ import { assets } from '../assets/assets';
 import CartTotal from '../components/CartTotal';
 
 const Cart = () => {
-  const { products, currency, cartItems, updateQuantity, navigate, token } = useContext(ShopContext);
+  const { products, formatPKR, cartItems, updateQuantity, navigate, token } = useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
 
   useEffect(() => {
@@ -42,12 +42,7 @@ const Cart = () => {
                 <img className='w-16 sm:w-20' src={productData.image[0]} alt="Photo" />
                 <div>
                   <p className='text-sm font-medium sm:text-lg'>{productData.name}</p>
-                  <div className='flex items-center gap-5 mt-2'>
-                    <p>
-                      {currency}&nbsp;{productData.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                    </p>
-                    <p className='px-2 border sm:px-3 sm:py-1 bg-slate-50'>{item.size}</p>
-                  </div>
+                  <p className='mt-2'>{formatPKR(productData.price)}</p>
                 </div>
               </div>
               <input
@@ -73,7 +68,7 @@ const Cart = () => {
           <div className='w-full text-end'>
             <button
               onClick={() => token ? navigate('/place-order') : navigate('/login')}
-              className={`px-8 py-3 my-8 text-sm text-white bg-black active:bg-gray-700 ${isCartEmpty ? 'opacity-50 cursor-not-allowed' : ''}`}
+              className={`my-8 bg-emerald-700 px-8 py-3 text-sm text-white active:bg-emerald-800 ${isCartEmpty ? 'cursor-not-allowed opacity-50' : ''}`}
               disabled={isCartEmpty}
             >
               PROCEED TO CHECKOUT

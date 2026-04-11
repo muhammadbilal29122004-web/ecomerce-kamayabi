@@ -1,72 +1,149 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Title from './Title'
 
 const Testimonials = () => {
+    const scrollRef = useRef(null)
+
     const testimonials = [
         {
-            name: "Sarah Ahmed",
-            role: "Entrepreneur",
-            text: "The quality of products at ANMOOL is truly unmatched. I've bought jewellery and cosmetics here, and both were beyond my expectations. Highly recommended!",
+            name: 'Fatima Noor',
+            role: 'Homemaker, Lahore',
+            text: 'I ordered a taweez and a Surah Yaseen ring. The packaging was careful and the items matched exactly what I saw on the site. WhatsApp replies were quick and polite — thank you, KAMAYABI.',
             rating: 5
         },
         {
-            name: "Zoya Malik",
-            role: "Dermatologist",
-            text: "As a professional, I'm very picky about cosmetics. ANMOOL's collection is authentic and effective. Their service is top-notch too.",
+            name: 'Bilal Raza',
+            role: 'Software Engineer, Dubai',
+            text: 'I live abroad and was nervous about ordering online. They shared clear photos, answered every question on WhatsApp, and shipping was faster than I expected. The naqsh I received feels authentic and beautifully finished.',
             rating: 5
         },
         {
-            name: "Hamza Khan",
-            role: "Student",
-            text: "Fast delivery and great customer support! I love how easy it is to find what I need across so many different categories. Great job!",
-            rating: 4
+            name: 'Ayesha Siddiqui',
+            role: 'School Teacher, Karachi',
+            text: 'I needed help choosing something after istikhara and did not want to be rushed. The team took their time, explained the options calmly, and I felt respected from start to finish. Very happy with my purchase.',
+            rating: 5
+        },
+        {
+            name: 'Hassan Tariq',
+            role: 'Small business owner',
+            text: 'I had two bad experiences elsewhere before finding KAMAYABI. Here I got both quality and honesty. The stone and loh pieces were clean, well described, and exactly as promised. I will order again.',
+            rating: 5
         }
     ]
 
-    return (
-        <div className='my-20 bg-gray-50 rounded-[4rem] p-10 sm:p-20 shadow-inner'>
-            <div className='text-3xl text-center py-12'>
-                <Title text1={'WHAT OUR'} text2={'CUSTOMERS SAY'} />
-                <p className='w-3/4 m-auto text-xs text-gray-600 sm:text-sm md:text-base'>
-                    Don't just take our word for it. Here's what some of our valued customers have to say about their experience with ANMOOL.
-                </p>
-            </div>
+    const scrollByDir = (dir) => {
+        const el = scrollRef.current
+        if (!el) return
+        const card = el.querySelector('[data-testimonial-card]')
+        const gap = 24
+        const step = (card?.offsetWidth ?? 320) + gap
+        el.scrollBy({ left: dir * step, behavior: 'smooth' })
+    }
 
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-10'>
-                {testimonials.map((item, index) => (
-                    <div key={index} className='bg-white p-8 rounded-3xl shadow-xl hover:-translate-y-2 transition-transform duration-500 border border-gray-100 flex flex-col justify-between'>
-                        <div>
-                            <div className='flex gap-1 text-yellow-400 mb-6'>
+    const stackColors = [
+        'bg-emerald-700',
+        'bg-emerald-600',
+        'bg-teal-600',
+        'bg-slate-600',
+        'bg-emerald-800',
+        'bg-slate-500'
+    ]
+
+    return (
+        <section
+            className='my-16 sm:my-20 rounded-[2rem] sm:rounded-[3rem] bg-gradient-to-b from-gray-50 to-white px-4 py-12 sm:px-8 sm:py-16 md:px-12 md:py-20 shadow-inner'
+            aria-labelledby='testimonials-heading'
+        >
+            <div className='mx-auto max-w-7xl'>
+                <div className='text-center'>
+                    <Title text1={'CUSTOMER'} text2={'FEEDBACK'} />
+                    <p
+                        id='testimonials-heading'
+                        className='mx-auto max-w-2xl text-sm text-gray-600 sm:text-base leading-relaxed'
+                    >
+                        Authentic pieces, thoughtful guidance, and quick WhatsApp support — here is what customers say
+                        about shopping with KAMAYABI.
+                    </p>
+                </div>
+
+                <div className='mt-10 flex items-center justify-end gap-2 md:hidden'>
+                    <button
+                        type='button'
+                        onClick={() => scrollByDir(-1)}
+                        className='rounded-full bg-white px-3 py-1.5 text-sm font-medium text-emerald-900 shadow-md active:scale-95 transition'
+                        aria-label='Previous reviews'
+                    >
+                        ←
+                    </button>
+                    <button
+                        type='button'
+                        onClick={() => scrollByDir(1)}
+                        className='rounded-full bg-white px-3 py-1.5 text-sm font-medium text-emerald-900 shadow-md active:scale-95 transition'
+                        aria-label='Next reviews'
+                    >
+                        →
+                    </button>
+                </div>
+
+                <div
+                    ref={scrollRef}
+                    className='mt-4 flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:pb-0 md:snap-none -mx-1 px-1 md:mx-0 md:px-0'
+                >
+                    {testimonials.map((item, index) => (
+                        <article
+                            key={index}
+                            data-testimonial-card
+                            className='min-w-[min(100%,20rem)] sm:min-w-[22rem] md:min-w-0 snap-center shrink-0 md:snap-normal flex flex-col rounded-2xl bg-white p-6 shadow-lg shadow-gray-200/50 transition hover:shadow-xl hover:-translate-y-0.5 duration-300'
+                        >
+                            <div className='flex gap-0.5 text-amber-400 mb-4' aria-hidden>
                                 {[...Array(item.rating)].map((_, i) => (
-                                    <span key={i} className='text-lg'>★</span>
+                                    <span key={i} className='text-base leading-none'>
+                                        ★
+                                    </span>
                                 ))}
                             </div>
-                            <p className='text-gray-600 italic leading-loose text-lg mb-8'>"{item.text}"</p>
-                        </div>
-                        <div className='flex items-center gap-4 border-t pt-6 border-gray-100'>
-                            <div className='w-12 h-12 bg-black text-white flex items-center justify-center rounded-full font-bold text-xl'>
-                                {item.name.charAt(0)}
+                            <blockquote className='flex-1'>
+                                <p className='text-left text-gray-700 italic text-[0.95rem] sm:text-base leading-relaxed'>
+                                    <span className='text-emerald-700/40 not-italic font-serif text-2xl leading-none mr-1'>
+                                        “
+                                    </span>
+                                    {item.text}
+                                    <span className='text-emerald-700/40 not-italic font-serif text-2xl leading-none ml-0.5'>
+                                        ”
+                                    </span>
+                                </p>
+                            </blockquote>
+                            <div className='mt-6 flex items-center gap-3 pt-5'>
+                                <div
+                                    className='flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-emerald-800 text-lg font-bold text-white'
+                                    aria-hidden
+                                >
+                                    {item.name.charAt(0)}
+                                </div>
+                                <div className='min-w-0 text-left'>
+                                    <p className='font-bold text-emerald-900 truncate'>{item.name}</p>
+                                    <p className='text-xs text-gray-500 tracking-wide'>{item.role}</p>
+                                </div>
                             </div>
-                            <div>
-                                <h5 className='text-gray-900 font-bold'>{item.name}</h5>
-                                <p className='text-gray-400 text-xs tracking-widest'>{item.role}</p>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-            
-            <div className='mt-16 flex flex-col items-center justify-center gap-4 text-center'>
-                <p className='text-gray-400 text-sm'>Join over 10,000+ happy customers</p>
-                <div className='flex -space-x-4'>
-                    {[...Array(6)].map((_, i) => (
-                        <div key={i} className={`w-12 h-12 rounded-full border-4 border-gray-50 flex items-center justify-center text-white font-bold text-xs bg-slate-${(i + 1) * 100}`}>
-                            {i + 1}
-                        </div>
+                        </article>
                     ))}
                 </div>
+
+                <div className='mt-12 flex flex-col items-center gap-4 text-center'>
+                    <p className='text-gray-500 text-sm'>Join thousands of happy customers</p>
+                    <div className='flex -space-x-3' role='presentation'>
+                        {stackColors.map((bg, i) => (
+                            <div
+                                key={i}
+                                className={`flex h-11 w-11 items-center justify-center rounded-full text-[10px] font-bold text-white shadow-md ${bg}`}
+                            >
+                                {i + 1}
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     )
 }
 

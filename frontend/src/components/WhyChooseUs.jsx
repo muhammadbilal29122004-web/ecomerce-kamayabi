@@ -20,7 +20,7 @@ const WhyChooseUs = () => {
   return (
     <div className='my-20'>
       <div className='text-center mb-10'>
-        <Title text1={'WHY CHOOSE'} text2={'ANMOOL'} />
+        <Title text1={'WHY CHOOSE'} text2={'KAMAYABI'} />
         <p className='max-w-2xl mx-auto text-sm sm:text-base text-gray-600'>
           We combine premium quality, transparent service, and modern convenience so your shopping
           experience feels simple, reliable, and refined.
@@ -31,10 +31,10 @@ const WhyChooseUs = () => {
         {points.map((point, index) => (
           <div
             key={index}
-            className='rounded-3xl border border-gray-100 bg-white p-6 sm:p-8 shadow-[0_12px_30px_rgba(17,24,39,0.07)] hover:shadow-[0_18px_40px_rgba(17,24,39,0.12)] transition-all duration-300'
+            className='rounded-3xl bg-white p-6 sm:p-8 shadow-[0_12px_30px_rgba(17,24,39,0.07)] hover:shadow-[0_18px_40px_rgba(17,24,39,0.12)] transition-all duration-300'
           >
-            <div className='w-10 h-1 bg-black rounded-full mb-5'></div>
-            <h3 className='text-xl font-bold text-gray-900 mb-3'>{point.title}</h3>
+            <div className='mb-5 h-1 w-10 rounded-full bg-emerald-600'></div>
+            <h3 className='mb-3 text-xl font-bold text-emerald-900'>{point.title}</h3>
             <p className='text-gray-600 leading-relaxed'>{point.description}</p>
           </div>
         ))}

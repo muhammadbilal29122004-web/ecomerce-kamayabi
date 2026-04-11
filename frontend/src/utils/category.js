@@ -1,18 +1,17 @@
+/** Collection filter + category URLs — KAMAYABI storefront */
 export const CATEGORY_OPTIONS = [
-  "Health & Care",
-  "Beauty & Care",
-  "Fashion & Design",
-  "Jewellery",
+  "Surah",
+  "Naqsh",
+  "Taveez",
+  "Istikhara",
+  "Loh",
+  "cara",
+  "ring",
+  "stone",
 ];
 
-const LEGACY_CATEGORY_MAP = {
-  Medicine: "Health & Care",
-  Cosmetics: "Beauty & Care",
-  Cloth: "Fashion & Design",
-  Jewelry: "Jewellery",
-  Jewellery: "Jewellery",
-  "Beauty Core": "Beauty & Care",
-};
+/** Legacy API/DB values → canonical label (extend if old data remains) */
+const LEGACY_CATEGORY_MAP = {};
 
 export const normalizeCategory = (category = "") =>
   LEGACY_CATEGORY_MAP[category] || category;
