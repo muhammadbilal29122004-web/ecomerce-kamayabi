@@ -90,12 +90,19 @@ const registerUser = async (req, res) => {
 const loginAdmin = async (req, res) => {
   try {
     const { email, password } = req.body;
+    const adminEmail = (process.env.ADMIN_EMAIL || "").trim().toLowerCase();
+    const adminPassword = (process.env.ADMIN_PASSWORD || "").trim();
+    const inputEmail = (email || "").trim().toLowerCase();
 
-    if (
-      email === process.env.ADMIN_EMAIL &&
-      password === process.env.ADMIN_PASSWORD
-    ) {
-      const token = jwt.sign(email + password, process.env.JWT_SECRET);
+    if (!adminEmail || !adminPassword) {
+      return res.status(500).json({
+        success: false,
+        message: "Admin credentials are not configured on server",
+      });
+    }
+
+    if (inputEmail === adminEmail && password === adminPassword) {
+      const token = jwt.sign(adminEmail + adminPassword, process.env.JWT_SECRET);
 
       res.status(200).json({ success: true, token });
     } else {
