@@ -11,7 +11,7 @@ const Login = ({ setToken }) => {
     try {
       e.preventDefault();
       const response = await axios.post(backendUrl + "/api/user/admin", {
-        email,
+        email: email.trim(),
         password,
       });
 
@@ -23,7 +23,7 @@ const Login = ({ setToken }) => {
       }
     } catch (error) {
       console.error(error);
-      toast.error("Please try again later.");
+      toast.error(error.response?.data?.message || "Please try again later.");
     }
   };
 
