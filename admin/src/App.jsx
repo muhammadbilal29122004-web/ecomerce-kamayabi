@@ -15,6 +15,8 @@ const AddPage = ({ token }) => {
   return <Add key={productId ?? "add"} token={token} />;
 };
 
+const ADMIN_TOKEN_KEY = "admin_token";
+
 const normalizeUrl = (value) => (value || "").trim().replace(/\/+$/, "");
 
 const isLoopbackHost = (value) => {
@@ -54,10 +56,10 @@ export const currency = (price) => {
 
 const App = () => {
   const [token, setToken] = useState(
-    localStorage.getItem("token") ? localStorage.getItem("token") : ""
+    localStorage.getItem(ADMIN_TOKEN_KEY) || ""
   );
   useEffect(() => {
-    localStorage.setItem("token", token);
+    localStorage.setItem(ADMIN_TOKEN_KEY, token);
   }, [token]);
 
   return (
