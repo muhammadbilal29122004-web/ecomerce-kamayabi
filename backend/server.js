@@ -14,22 +14,44 @@ const port = process.env.PORT || 4000;
 connectCloudinary();
 let isRetryingDb = false;
 
-const allowedOrigins = new Set([
-  "https://e-commerce-site-nine-mocha.vercel.app",
-  "https://e-commerce-site-i5fz.vercel.app",
+const localOrigins = [
   "http://localhost:3000",
   "http://localhost:5173",
   "http://localhost:5174",
   "http://127.0.0.1:3000",
   "http://127.0.0.1:5173",
   "http://127.0.0.1:5174",
+];
+
+const envOrigins = (process.env.CORS_ORIGINS || "")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
+const explicitOrigins = new Set([
+  "https://e-commerce-site-nine-mocha.vercel.app",
+  "https://e-commerce-site-i5fz.vercel.app",
+  ...localOrigins,
+  ...envOrigins,
 ]);
+
+const isAllowedVercelOrigin = (origin) => {
+  try {
+    const { protocol, hostname } = new URL(origin);
+    // Allow Vercel preview/production domains over HTTPS only.
+    return protocol === "https:" && hostname.endsWith(".vercel.app");
+  } catch {
+    return false;
+  }
+};
 
 const corsOptions = {
   origin: (origin, callback) => {
     // Allow same-origin/server-to-server requests without an Origin header.
     if (!origin) return callback(null, true);
-    if (allowedOrigins.has(origin)) return callback(null, true);
+    if (explicitOrigins.has(origin) || isAllowedVercelOrigin(origin)) {
+      return callback(null, true);
+    }
     return callback(new Error("Not allowed by CORS"));
   },
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
