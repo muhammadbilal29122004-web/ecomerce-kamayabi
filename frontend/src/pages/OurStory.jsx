@@ -4,30 +4,28 @@ const OurStory = () => {
   return (
     <div className='my-16 sm:my-20'>
       <div className='max-w-5xl mx-auto bg-white rounded-3xl shadow-lg p-6 sm:p-10 md:p-14 border border-gray-100'>
-        <p className='text-xs sm:text-sm tracking-[0.3em] text-gray-500 mb-4'>THE KAMAYABI LEGACY</p>
+        <p className='text-xs sm:text-sm tracking-[0.3em] text-gray-500 mb-4'>KAMAYABI ROHANI MARKAZ</p>
         <h1 className='mb-6 text-3xl leading-tight font-bold text-emerald-950 sm:text-5xl'>
-          Our Full Story
+          Our Rohani Story
         </h1>
         <p className='text-gray-600 leading-relaxed mb-5'>
-          KAMAYABI was born from a simple idea: everyday shopping should feel premium, trusted, and
-          personal. We started as a small curated store with a strong focus on quality and quickly
-          grew into a lifestyle destination for families who value both elegance and reliability.
+          KAMAYABI ROHANI MARKAZ ka aghaz is niyyat se hua ke logon tak paak aur
+          moatabar rohani ashya adab ke sath pohanchayi ja sakein. Hum ne apna safar
+          khuloos, aitbaar, aur behtareen khidmat ke usoolon par shuru kiya.
         </p>
         <p className='text-gray-600 leading-relaxed mb-5'>
-          From statement jewelry and beauty essentials to fashion picks and health products, every
-          collection is selected to match real customer needs. Our team studies trends, tests
-          product quality, and works with dependable suppliers so that every purchase feels worth
-          it from day one.
+          Har Surah, Naqsh, Taveez, Loh, Ring aur Stone intikhab ke baad ehtimaam se
+          tayar kiya jata hai. Humari koshish hoti hai ke har cheez asaliyat, saaf
+          niyyat, aur rohani rehnumai ke sath aap tak pohanche.
         </p>
         <p className='text-gray-600 leading-relaxed mb-5'>
-          Behind the scenes, we care deeply about service. Fast support, transparent communication,
-          and fair return policies are part of our promise. For us, trust is not a marketing line;
-          it is the foundation of our relationship with every customer.
+          Humare liye customer sirf khareedar nahi, balke amanat hai. Is liye hum
+          wazeh maloomat, seedha rabta, aur WhatsApp par rehnumai ke zariye aap ki
+          madad karte hain taake aap itminan ke sath faisla kar sakein.
         </p>
         <p className='text-gray-600 leading-relaxed'>
-          As KAMAYABI continues to grow, our mission stays the same: deliver modern style and daily
-          essentials with authenticity, comfort, and confidence. Thank you for being part of our
-          journey.
+          Aaj bhi hamara mission wahi hai: KAMAYABI ROHANI MARKAZ ko aitbaar, asaliyat,
+          aur rohani khidmat ka naam banana. Aap ke bharose ka dil se shukriya.
         </p>
       </div>
     </div>

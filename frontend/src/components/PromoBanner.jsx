@@ -13,27 +13,19 @@ const PromoBanner = () => {
                 className='w-full h-full object-cover opacity-60 hover:scale-105 transition-transform duration-[2000ms]'
             />
             <div className='absolute inset-0 flex flex-col items-center justify-center p-10 text-center text-white'>
-                <h4 className='text-sm sm:text-lg tracking-[0.4em] font-medium mb-4 animate-pulse'>NEW ARRIVALS</h4>
+                <h4 className='text-sm sm:text-lg tracking-[0.4em] font-medium mb-4 animate-pulse'>ROHANI COLLECTION</h4>
                 <h1 className='text-4xl sm:text-7xl font-bold uppercase tracking-tight mb-8'>
-                    The Summer <br /> <span className='text-transparent border-b-2 border-white' style={{ WebkitTextStroke: '1px white' }}>Collection</span>
+                    KAMAYABI <br /> <span className='text-transparent border-b-2 border-white' style={{ WebkitTextStroke: '1px white' }}>ROHANI MARKAZ</span>
                 </h1>
                 <p className='max-w-2xl text-gray-300 text-lg sm:text-xl mb-12 hidden sm:block'>
-                    Discover our most anticipated release of the year. 
-                    Meticulously crafted for the highest standards of luxury and performance.
+                    Paak Surah, Naqsh, Taveez, Loh aur rohani items ka khaas intikhab.
+                    Asaliyat, adab, aur khuloos ke sath aap tak pohanchaya jata hai.
                 </p>
-                <div className='flex gap-4 flex-col sm:flex-row'>
-                    <button className='transform rounded-full bg-white px-12 py-4 text-sm font-bold text-emerald-800 transition-all duration-300 hover:scale-105 hover:bg-emerald-50'>
-                        SHOP THE COLLECTION
-                    </button>
-                    <button className='px-12 py-4 border border-white text-white text-sm font-bold rounded-full hover:bg-white/10 transition-all duration-300 transform hover:scale-105'>
-                        EXPLORE LOOKBOOK
-                    </button>
-                </div>
             </div>
             <div className='absolute top-10 right-10 flex gap-4 text-white opacity-40 text-xs tracking-widest uppercase hidden lg:flex'>
                 <span>SINCE 2026</span>
                 <span>•</span>
-                <span>KAMAYABI ORIGINAL</span>
+                <span>KAMAYABI ROHANI MARKAZ</span>
             </div>
         </div>
     )

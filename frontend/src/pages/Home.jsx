@@ -12,7 +12,7 @@ import ShoppingJourney from '../components/ShoppingJourney'
 import OurPolicy from '../components/OurPolicy'
 import NewsLetterBox from '../components/NewsLetterBox'
 
-const WHATSAPP_NUMBER = '923353232164'
+const WHATSAPP_NUMBER = '923113254286'
 const WHATSAPP_HREF = `https://wa.me/${WHATSAPP_NUMBER}`
 
 const Home = () => {
@@ -40,8 +40,8 @@ const Home = () => {
         target='_blank'
         rel='noopener noreferrer'
         className='fixed bottom-6 right-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition hover:scale-105 hover:shadow-xl sm:bottom-8 sm:right-8'
-        aria-label='Chat on WhatsApp: 0092 335 3232164'
-        title='WhatsApp: 0092 335 3232164'
+        aria-label='Chat on WhatsApp: 03113254286'
+        title='WhatsApp: 03113254286'
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'

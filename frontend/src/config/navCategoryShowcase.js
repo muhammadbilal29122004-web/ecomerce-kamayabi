@@ -1,6 +1,6 @@
 import { encodeCategoryPath } from '../utils/category'
 
-import surahBanner from '../assets/KAMAYABI/surah banner.jpg'
+import surahBanner from '../assets/KAMAYABI/surrahbanner.png'
 import naqshBanner from '../assets/naqsh image.jpg'
 import taweezBanner from '../assets/taveez image.jpg'
 import istikharaBanner from '../assets/istikhara.jpg'
@@ -9,10 +9,10 @@ import caraBanner from '../assets/KAMAYABI/cara.jpg'
 import ringBanner from '../assets/KAMAYABI/ring surah.jpg'
 import stoneBanner from '../assets/stone.jpg'
 
-import surahYaseen from '../assets/surah yaseen.jpg'
-import surahMuzammil from '../assets/surah muzammil.jpg'
-import surahWaqia from '../assets/surah waqia.jpg'
-import surahRahan from '../assets/surah rahan.jpg'
+import surrahCard1 from '../assets/KAMAYABI/surrahcard1.png'
+import surrahCard2 from '../assets/KAMAYABI/surrahcard2.png'
+import surrahCard3 from '../assets/KAMAYABI/surrahcard3.png'
+import surrahCard4 from '../assets/KAMAYABI/surrahcard4.png'
 
 import naqshImg from '../assets/naqsh image.jpg'
 import naqshWebp from '../assets/KAMAYABI/naqsh.webp'
@@ -43,7 +43,7 @@ export const navCategoryShowcase = [
         displayText: 'Paak Qurani Surah — adab o ehtimaam',
         bannerTitle: 'Surah',
         banner: surahBanner,
-        images: [surahYaseen, surahMuzammil, surahWaqia, surahRahan],
+        images: [surrahCard1, surrahCard2, surrahCard3, surrahCard4],
         pageDesc:
             'Paak Qurani Surah — adab o ehtimaam ke sath tayar. Roohani sukoon aur hifazat ke liye mukhtalif Surah dekhein.',
     },

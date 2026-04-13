@@ -39,7 +39,11 @@ const Login = () => {
         }
       }
     } catch (error) {
-      toast.error(error.message);
+      const message =
+        error.response?.data?.message ||
+        error.message ||
+        "Something went wrong. Please try again.";
+      toast.error(message);
     }
   };
 

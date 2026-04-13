@@ -68,9 +68,9 @@ const Product = () => {
           </button>
           <hr className='mt-8 sm:w-4/5' />
           <div className='flex flex-col gap-1 mt-5 text-sm text-gray-500'>
-            <p>Guaranteed 100% Authentic – Shop with Confidence!</p>
-            <p>Enjoy Cash on Delivery – Pay at Your Doorstep!</p>
-            <p>Hassle-Free Returns & Exchanges – 10 Days, No Questions Asked!</p>
+            <p>Guaranteed 100% Authentic from KAMAYABI ROHANI MARKAZ.</p>
+            <p>Advance Payment Only - Your order is confirmed after secure payment.</p>
+            <p>Trusted quality, sincere service, and complete customer care.</p>
           </div>
         </div>
       </div>

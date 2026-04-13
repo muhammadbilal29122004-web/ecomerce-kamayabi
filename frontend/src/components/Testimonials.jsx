@@ -56,13 +56,13 @@ const Testimonials = () => {
         >
             <div className='mx-auto max-w-7xl'>
                 <div className='text-center'>
-                    <Title text1={'CUSTOMER'} text2={'FEEDBACK'} />
+                    <Title text1={'CUSTOMER'} text2={'EXPERIENCE'} />
                     <p
                         id='testimonials-heading'
                         className='mx-auto max-w-2xl text-sm text-gray-600 sm:text-base leading-relaxed'
                     >
-                        Authentic pieces, thoughtful guidance, and quick WhatsApp support — here is what customers say
-                        about shopping with KAMAYABI.
+                        KAMAYABI ROHANI MARKAZ ke customers ka tajurba - asaliyat, rehnumai, aur
+                        WhatsApp par tez support ke sath.
                     </p>
                 </div>
 
@@ -130,7 +130,7 @@ const Testimonials = () => {
                 </div>
 
                 <div className='mt-12 flex flex-col items-center gap-4 text-center'>
-                    <p className='text-gray-500 text-sm'>Join thousands of happy customers</p>
+                    <p className='text-gray-500 text-sm'>Trusted by families across Pakistan and abroad</p>
                     <div className='flex -space-x-3' role='presentation'>
                         {stackColors.map((bg, i) => (
                             <div

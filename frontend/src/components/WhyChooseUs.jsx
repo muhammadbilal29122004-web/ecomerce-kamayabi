@@ -4,26 +4,26 @@ import Title from './Title'
 const WhyChooseUs = () => {
   const points = [
     {
-      title: 'Authentic Products',
-      description: 'Every item is sourced from verified suppliers and reviewed before listing.'
+      title: 'Asal Rohani Items',
+      description: 'Har item ehtimaam se intikhab kiya jata hai taake aap tak asaliyat aur aitbaar ke sath pohanche.'
     },
     {
-      title: 'Fast, Reliable Delivery',
-      description: 'Smart dispatch process ensures safe packaging and on-time doorstep delivery.'
+      title: 'Mehfooz Delivery',
+      description: 'Aap ka order hifazati packing ke sath bheja jata hai, taake cheez salamat aur behtareen halat mein mile.'
     },
     {
-      title: 'Dedicated Support',
-      description: 'Friendly support team helps you with orders, returns, and product guidance.'
+      title: 'Rehnumai Aur Support',
+      description: 'Humari team WhatsApp aur direct rabtay par aap ki zaroorat ke mutabiq mashwara aur support deti hai.'
     }
   ]
 
   return (
     <div className='my-20'>
       <div className='text-center mb-10'>
-        <Title text1={'WHY CHOOSE'} text2={'KAMAYABI'} />
+        <Title text1={'WHY CHOOSE'} text2={'KAMAYABI ROHANI MARKAZ'} />
         <p className='max-w-2xl mx-auto text-sm sm:text-base text-gray-600'>
-          We combine premium quality, transparent service, and modern convenience so your shopping
-          experience feels simple, reliable, and refined.
+          KAMAYABI ROHANI MARKAZ mein hum asaliyat, khuloos, aur behtareen khidmat ko
+          pehli tarjeeh dete hain taake aap ka tajurba pur-itminan rahe.
         </p>
       </div>
 

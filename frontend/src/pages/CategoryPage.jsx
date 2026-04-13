@@ -103,11 +103,14 @@ const CategoryPage = () => {
             
             {/* Newsletter Section - Brief */}
             <div className="mt-40 rounded-[3rem] bg-emerald-900 p-10 text-center text-white sm:p-20">
-                <h2 className="text-3xl font-bold mb-4">Want more of {normalizedCategoryName}?</h2>
-                <p className="text-gray-400 mb-8 max-w-lg mx-auto">Subscribe to get notified about new arrivals, limited editions and exclusive offers in this category.</p>
+                <h2 className="text-3xl font-bold mb-4">KAMAYABI ROHANI MARKAZ Updates</h2>
+                <p className="text-gray-400 mb-8 max-w-lg mx-auto">
+                    Apni email share karein taake {normalizedCategoryName} category ki nayi rohani
+                    items, updates, aur khaas offers sab se pehle aap tak pohanch sakein.
+                </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <input type="text" placeholder="Your email address" className="px-6 py-4 rounded-full bg-white/10 border border-white/20 focus:outline-none focus:border-white w-full sm:w-80" />
-                    <button className="rounded-full bg-white px-10 py-4 font-bold text-emerald-800 transition-all hover:bg-emerald-50">SUBSCRIBE</button>
+                    <input type="text" placeholder="Apna email address likhein" className="px-6 py-4 rounded-full bg-white/10 border border-white/20 focus:outline-none focus:border-white w-full sm:w-80" />
+                    <button className="rounded-full bg-white px-10 py-4 font-bold text-emerald-800 transition-all hover:bg-emerald-50">JOIN NOW</button>
                 </div>
             </div>
         </div>

@@ -15,10 +15,10 @@ const LatestCollection = () => {
   return (
     <div className="my-10">
       <div className="py-8 text-3xl text-center">
-        <Title text1={"LATEST"} text2={"COLLECTIONS"} />
+        <Title text1={"ROHANI"} text2={"COLLECTIONS"} />
         <p className="w-3/4 m-auto text-xs text-gray-600 sm:text-sm md:text-base">
-          Step into a world of style with our newest collections, carefully
-          curated to bring you the best in fashion, home decor, and more.
+          KAMAYABI ROHANI MARKAZ ki nayi aur muntakhib rohani collections dekhein.
+          Har item asaliyat, khuloos, aur ehtimaam ke sath aap ke liye tayar ki gayi hai.
         </p>
       </div>
 

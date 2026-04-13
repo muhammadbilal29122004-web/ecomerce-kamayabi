@@ -87,6 +87,11 @@ const Orders = ({ token }) => {
                   <p className="font-semibold">
                     {order.address.firstName} {order.address.lastName}
                   </p>
+                  {order.address.motherName && (
+                    <p className="text-emerald-800/80">
+                      Mother Name: {order.address.motherName}
+                    </p>
+                  )}
                   <p className="text-emerald-800/80">{order.address.street},</p>
                   <p className="text-emerald-800/80">
                     {order.address.city}, {order.address.state},{" "}
@@ -102,6 +107,18 @@ const Orders = ({ token }) => {
                   <p>Items: {order.items.length}</p>
                   <p>Method: {order.paymentMethod}</p>
                   <p>Status: {order.payment ? "Paid" : "Pending"}</p>
+                  {order.paymentScreenshot ? (
+                    <a
+                      href={order.paymentScreenshot}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-1 inline-block font-medium text-emerald-700 underline"
+                    >
+                      View screenshot
+                    </a>
+                  ) : (
+                    <p className="text-emerald-800/70">Screenshot: Not uploaded</p>
+                  )}
                   <p className="text-emerald-800/70">
                     {new Date(order.date).toLocaleDateString()}
                   </p>

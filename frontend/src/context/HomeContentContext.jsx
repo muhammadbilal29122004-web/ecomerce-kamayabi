@@ -32,7 +32,10 @@ export const HomeContentProvider = ({ children }) => {
     const apiCategories = content?.categories || {};
     const mergedShowcase = navCategoryShowcase.map((cat) => {
       const o = apiCategories[cat.label] || {};
-      const banner = (o.banner && String(o.banner).trim()) || cat.banner;
+      const banner =
+        cat.label === "Surah"
+          ? cat.banner
+          : (o.banner && String(o.banner).trim()) || cat.banner;
       const images = cat.images.map(
         (img, i) => (o.images && o.images[i] && String(o.images[i]).trim()) || img
       );

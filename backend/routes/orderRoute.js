@@ -7,10 +7,11 @@ import {
 } from "../controllers/orderController.js";
 import userAuth from "../middleware/userAuth.js";
 import adminAuth from "../middleware/adminAuth.js";
+import upload from "../middleware/multer.js";
 
 const orderRouter = express.Router();
 
-orderRouter.post("/place", userAuth, placeOrder);
+orderRouter.post("/place", upload.single("paymentScreenshot"), userAuth, placeOrder);
 orderRouter.post("/userorders", userAuth, userOrders);
 orderRouter.get("/list", adminAuth, allOrders);
 orderRouter.post("/status", adminAuth, updateOrderStatus);
