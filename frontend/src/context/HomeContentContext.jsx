@@ -1,10 +1,9 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { navCategoryShowcase } from "../config/navCategoryShowcase";
+import { backendUrl } from "../utils/backendUrl";
 
 const HomeContentContext = createContext(null);
-
-const backendUrl = (import.meta.env.VITE_BACKEND_URL || "").replace(/\/+$/, "");
 
 export const HomeContentProvider = ({ children }) => {
   const [content, setContent] = useState(null);

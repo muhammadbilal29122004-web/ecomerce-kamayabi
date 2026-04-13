@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { backendUrl } from "../utils/backendUrl";
 
 export const ShopContext = createContext();
 
@@ -26,8 +27,6 @@ const ShopContextProvider = (props) => {
 
   /** Flat shipping in PKR */
   const delivery_fee = 300;
-  const backendUrl = (import.meta.env.VITE_BACKEND_URL || "").replace(/\/+$/, "");
-
   const navigate = useNavigate();
 
   const fetchProducts = async () => {
